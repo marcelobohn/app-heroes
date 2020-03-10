@@ -11,4 +11,18 @@
 </p>
 
 <%= link_to 'Edit', edit_hero_path(@hero) %> |
-<%= link_to 'Back', heros_path %>
+<%= link_to 'Back', heros_path %> | 
+<%= link_to 'New avatar', new_hero_file_upload_path(@hero) %>
+
+<% if @hero.files.sample %>
+  <h5>Avatar files</h5> 
+
+<div class="row">
+  <% @hero.files.each do |file| %>
+    <div class="col-sm-6 col-md-6 col-lg-4">
+      <%= image_tag file, width: 200, class: 'float-left', style: 'margin-right: 12px;', alt: '' %>
+      <%= link_to "Remove", hero_file_upload_path(@hero, file), class: '', method: :delete, data: { confirm: "Tem certeza?" } %>
+    </div>
+  <% end %>
+</div>
+<% end %>
