@@ -1,0 +1,7 @@
+<div class="row">
+  <% @heroes.each do |hero| %>
+    <div class="col-6 col-sm">
+      <%= render 'hero', hero: hero %>
+    </div>
+  <% end %>
+</div>
