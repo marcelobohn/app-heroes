@@ -1,24 +1,23 @@
-# README
+# HEROES APP
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Settings
+Configure database in file `.env` (copy .env.sample)
 
-Things you may want to cover:
+## Run app in development
+After clone repository, run on console
 
-* Ruby version
+```
+bundle install
+yarn install
+rake db:create db:migrate
+rails s
+```
 
-* System dependencies
+## Tests
+Run all tests
+```
+rspec
+```
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## Online
+This app is available online in https://app-heroes-rails.herokuapp.com
