@@ -2,5 +2,21 @@
 
 <%= render 'form', hero: @hero %>
 
-<%= link_to 'Show', @hero %> |
-<%= link_to 'Back', heros_path %>
+<br />
+
+<%= link_to 'Show', @hero, class: 'btn btn-primary btn-sm'  %> 
+<%= link_to 'Back', heros_path, class: 'btn btn-primary btn-sm'  %> 
+<%= link_to 'New avatar', new_hero_file_upload_path(@hero), class: 'btn btn-success btn-sm'  %>
+
+<% if @hero.files.sample %>
+  <h5>Avatar files</h5> 
+
+  <div class="row">
+    <% @hero.files.each do |file| %>
+      <div class="col-sm-6 col-md-6 col-lg-4">
+        <%= image_tag file, width: 200, class: 'float-left', style: 'margin-right: 12px;', alt: '' %>
+        <%= link_to "Remove", hero_file_upload_path(@hero, file), class: '', method: :delete, data: { confirm: "Tem certeza?" } %>
+      </div>
+    <% end %>
+  </div>
+<% end %>
